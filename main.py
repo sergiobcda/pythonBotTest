@@ -1,6 +1,6 @@
 import discord
 import os
-import Command
+from Command import Command
 from CommandList import CommandList
 
 client = discord.Client()
@@ -33,7 +33,10 @@ async def on_message(message):
             '''
             itera hasta encontrar el comando correcto o agotar la lista de comandos'''
             listLenght = len(availableCommandsList.list)
-            while cont < listLenght and not availableCommandsList.list[cont].exec(message):
+            '''l = (cont < listLenght)
+            command = availableCommandsList.list[cont]
+            r = not (await command.exec(message))'''
+            while (cont < listLenght) and not (await availableCommandsList.list[cont].exec(message)):
                 cont = cont + 1
             if cont == listLenght:
                 await message.channel.send('botTest: command not recognized')

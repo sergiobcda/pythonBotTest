@@ -12,7 +12,8 @@ class HelloUserCommand(Command):
 
     async def exec(self, message):
         stringMessage = message.content.split()
-        error = self.syntax in stringMessage[1]
-        if not error:
-            await message.channel.send('Hello user ', message.user.name)
-        return not error
+        result = self.syntax in stringMessage[1]
+        if result:
+            response = 'Hello user ' + message.author.name
+            await message.channel.send(response)
+        return result

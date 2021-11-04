@@ -28,4 +28,4 @@ class Command(ABC):
     '''
     @abstractmethod
     async def exec(self, message):
-        pass
+        return bool
