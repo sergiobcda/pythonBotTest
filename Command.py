@@ -18,8 +18,9 @@ class Command(ABC):
     de la clase Command (que en este caso sera otra clase que herede de Command por ser abstracta.
     Este metodo configura e inicializa los datos del objeto concreto
     '''
-    def __init__(self, name):
+    def __init__(self, name, syntax):
         self.name = name
+        self.syntax = syntax
 
     '''
     Metodo abstracto, es decir que debe ser completado por cada objeto que herede de Command.
